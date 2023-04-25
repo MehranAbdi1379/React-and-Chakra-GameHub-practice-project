@@ -14,18 +14,17 @@ import {
 import React from "react";
 import genres from "../data/genres";
 
-const Sidebar = () => {
-  type genre = {
-    id: number;
-    name: string;
-    image_background: string;
-  };
-  const GameGenres: genre[] = genres;
+interface Props {
+  selectedGenre: string;
+  setSelectedGenre: (genre: string) => void;
+}
+
+const Sidebar = ({ selectedGenre, setSelectedGenre }: Props) => {
   return (
     <Box p="25px">
       <Heading size="lg">Genres</Heading>
       <List paddingTop="25px">
-        {GameGenres.map((genre) => (
+        {genres.map((genre) => (
           <ListItem key={genre.id} paddingBottom={4}>
             <FormControl>
               <Flex align="center">
@@ -36,7 +35,13 @@ const Sidebar = () => {
                   height="50px"
                   width="50px"
                 ></Image>
-                <Link paddingLeft="10px" fontSize={20} paddingBottom={1}>
+                <Link
+                  onClick={() => setSelectedGenre(genre.name)}
+                  paddingLeft="10px"
+                  fontSize={20}
+                  paddingBottom={1}
+                  fontWeight={selectedGenre == genre.name ? "bold" : "normal"}
+                >
                   {genre.name}
                 </Link>
               </Flex>

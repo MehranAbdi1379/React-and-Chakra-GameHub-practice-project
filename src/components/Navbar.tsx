@@ -14,10 +14,11 @@ import {
   Text,
   useColorMode,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Navbar = () => {
-  const { toggleColorMode } = useColorMode();
+  const { toggleColorMode, colorMode } = useColorMode();
+  console.log(colorMode);
   return (
     <Flex
       paddingTop="20px"
@@ -30,11 +31,11 @@ const Navbar = () => {
         boxShadow="md"
         boxSize="52px"
         src="/public/img/logo.png"
-        borderRadius="20px"
+        borderRadius="10px"
         marginRight="20px"
       ></Image>
       <FormControl>
-        <InputGroup borderRadius={20}>
+        <InputGroup borderRadius={20} variant="filled">
           <InputLeftElement paddingTop={2.5}>
             <Button type="submit" variant="ghost" borderRadius={20}>
               <SearchIcon></SearchIcon>
@@ -48,9 +49,8 @@ const Navbar = () => {
           ></Input>
         </InputGroup>
       </FormControl>
-
       <Flex align="center" height="full" paddingLeft="10px">
-        <Switch onChange={toggleColorMode}></Switch>
+        <Switch colorScheme="green" onChange={toggleColorMode}></Switch>
         <FormLabel paddingTop="5px" paddingLeft="7px" minWidth="90px">
           Dark Mode
         </FormLabel>
