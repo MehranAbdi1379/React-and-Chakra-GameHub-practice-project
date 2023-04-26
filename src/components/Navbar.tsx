@@ -50,7 +50,11 @@ const Navbar = () => {
         </InputGroup>
       </FormControl>
       <Flex align="center" height="full" paddingLeft="10px">
-        <Switch colorScheme="green" onChange={toggleColorMode}></Switch>
+        <Switch
+          colorScheme="green"
+          onChange={toggleColorMode}
+          defaultChecked
+        ></Switch>
         <FormLabel paddingTop="5px" paddingLeft="7px" minWidth="90px">
           Dark Mode
         </FormLabel>

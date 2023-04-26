@@ -5,11 +5,6 @@ import Sidebar from "./components/Sidebar";
 import { useEffect, useState } from "react";
 
 function App() {
-  const { setColorMode } = useColorMode();
-  useEffect(() => {
-    setColorMode("light");
-  }, []);
-
   const [selectedGenre, setSelectedGenre] = useState("");
   return (
     <>
